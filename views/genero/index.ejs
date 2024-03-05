@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar</title>
+</head>
+
+<body>
+    <h1>Listagem de generos</h1>
+    <p>
+        <a href="/add">Adicionar</a>
+    </p>
+    <form method="post">
+        <input type="text" name="pesquisar">
+        <input type="submit" value="Pesquisar">
+    </form>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Publico_Alvo</th>
+            <th>Tamanho_Medio</th>
+            <th>Animes</th>
+            <th>Subgeneros</th>
+            <th>Editar</th>
+            <th>Deletar</th>
+        </tr>
+        <%Generos.forEach(function(genero){ %>
+            <tr>
+                <td>
+                    <%=genero.id%>
+                </td>
+                <td>
+                    <%=genero.nome%>
+                </td>
+                <td>
+                    <%=genero.publico_alvo%>
+                </td>
+                <td>
+                    <%=genero.tamanho_medio%>
+                </td>
+                <td>
+                    <%=genero.animes%>
+                </td>
+                <td>
+                    <%=genero.subgeneros%>
+                </td>
+                <td> <a href="genero/edt/<%=genero.id%>">Editar</a></td>
+                <td> <a href="genero/del/<%=genero.id%>">Deletar</a> </td>
+            </tr>
+            <% }) %>
+    </table>
+</body>
+
+</html>

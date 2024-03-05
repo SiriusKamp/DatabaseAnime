@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar</title>
+</head>
+
+<body>
+    <h1>Listagem de usuários</h1>
+    <p>
+        <a href="/add">Adicionar</a>
+    </p>
+    <form method="post">
+        <input type="text" name="pesquisar">
+        <input type="submit" value="Pesquisar">
+    </form>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Senha</th>
+            <th>Foto</th>
+            <th>Editar</th>
+            <th>Deletar</th>
+        </tr>
+        <%Usuarios.forEach(function(usuario){ %>
+            <tr>
+                <td>
+                    <%=usuario.id%>
+                </td>
+                <td>
+                    <%=usuario.nome%>
+                </td>
+                <td>
+                    <%=usuario.email%>
+                </td>
+                <td>
+                    <%=usuario.senha%>
+                </td>
+                <td><img src="/fotos/<%=usuario.foto%>" alt="foto do usuario" width="80px"></td>
+                <td> <a href="usuario/edt/<%=usuario.id%>">Editar</a></td>
+                <td> <a href="usuario/del/<%=usuario.id%>">Deletar</a> </td>
+            </tr>
+            <% }) %>
+    </table>
+</body>
+
+</html>
